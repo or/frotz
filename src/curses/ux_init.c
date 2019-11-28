@@ -90,6 +90,7 @@ static int	getcolor(char *);
 static int	geterrmode(char *);
 /* static FILE	*pathopen(const char *, const char *, const char *, char *); */
 
+#define SIGWINCH 28
 
 /*
  * os_warn
