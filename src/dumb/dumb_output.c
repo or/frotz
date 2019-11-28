@@ -146,7 +146,7 @@ static void dumb_copy_cell(int dest_row, int dest_col,
 
 void os_set_text_style(int x)
 {
-    current_style = x & REVERSE_STYLE;
+  current_style = x & (REVERSE_STYLE | EMPHASIS_STYLE | BOLDFACE_STYLE);
 }
 
 /* put a character in the cell at the cursor and advance the cursor.  */
@@ -270,6 +270,12 @@ static void show_cell(cell cel)
     case 0:
 	putchar(c);
 	break;
+    case BOLDFACE_STYLE:
+      printf("<b>%c</b>", c);
+      break;
+    case EMPHASIS_STYLE:
+      printf("<i>%c</i>", c);
+      break;
     case PICTURE_STYLE:
 	putchar(show_pictures ? c : ' ');
 	break;
